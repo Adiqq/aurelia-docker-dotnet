@@ -1,0 +1,17 @@
+version: '2'
+services:
+    api:
+        build:  ./api
+        ports:
+            -   "5000:5000"
+        volumes:
+            -   ./api:/api
+    front:
+        build:  ./front
+        ports:
+            -   "9000:9000"
+            -   "3001:3001"
+        volumes:
+            -   ./front:/front
+        depends_on:
+            -   api
