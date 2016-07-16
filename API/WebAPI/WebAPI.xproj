@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>f7f2adbc-6237-4197-b812-1742fef426d2</ProjectGuid>
-    <RootNamespace>API</RootNamespace>
+    <ProjectGuid>662e4060-a4bc-4051-a731-044a94df685d</ProjectGuid>
+    <RootNamespace>WebAPI</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
   </PropertyGroup>

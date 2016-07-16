@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "User ID=testuser;Password=testpassword;Host=localhost;Port=5432;Database=Test;Pooling=true;"
+  }
+}
