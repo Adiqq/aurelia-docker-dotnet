@@ -67,3 +67,20 @@ Alternatively, we can use:
 
 `docker kill 'container id'`
 
+### Problems
+
+In case of errors or problems, we can attach to container:
+
+e.g `/api/project.lock.json(1,0): error NU1009: The expected lock file doesn't exist. Please run "dotnet restore" to generate a new lock file.`
+
+First we need to open new cmd or powershell window and use `docker ps`
+
+We need to find id of container that we need, in this case API.
+
+Next, we type `docker exec -i -t ourContainerId /bin/bash`.
+
+We should be logged to container's bash, next we type `dotnet restore`
+
+If everything went ok, we can type `exit` to dettach from container.
+
+
