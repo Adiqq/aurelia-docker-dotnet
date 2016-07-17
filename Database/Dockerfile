@@ -1,5 +1,0 @@
-FROM centos/postgresql-95-centos7
-
-ENV POSTGRESQL_USER=testuser
-ENV POSTGRESQL_PASSWORD=testpassword
-ENV POSTGRESQL_DATABASE=Test

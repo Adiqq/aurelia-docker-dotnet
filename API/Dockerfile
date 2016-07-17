@@ -7,7 +7,7 @@ RUN ln -s /opt/dotnet/dotnet /usr/local/bin
 RUN rm dotnet.tar.gz
 
 ADD . /api
-WORKDIR /api/WebAPI
+WORKDIR /api
 
 RUN ["dotnet", "restore"]
 
