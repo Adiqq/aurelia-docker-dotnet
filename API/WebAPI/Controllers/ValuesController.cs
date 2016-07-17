@@ -20,7 +20,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "valuetest" + id;
+            return "valuetest ala ma kota" + id;
         }
 
         // POST api/values
