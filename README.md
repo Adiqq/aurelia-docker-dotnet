@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Adiqq/aurelia-docker-dotnet.png?label=ready&title=Ready)](https://waffle.io/Adiqq/aurelia-docker-dotnet)
 # aurelia-docker-dotnet
 
 ## Overview
