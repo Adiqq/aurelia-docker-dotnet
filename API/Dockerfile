@@ -6,16 +6,13 @@ RUN mkdir -p /opt/dotnet && tar zxf dotnet.tar.gz -C /opt/dotnet
 RUN ln -s /opt/dotnet/dotnet /usr/local/bin
 RUN rm dotnet.tar.gz
 
-ADD . /api
-WORKDIR /api/WebAPI
-
-RUN ["dotnet", "restore"]
-
-RUN ["dotnet", "build"]
-
 EXPOSE 5000/tcp
 
 ENV USE_POLLING_FILE_WATCHER=true
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+WORKDIR /
+ADD ./init.sh /
+RUN cat ./init.sh
 
-ENTRYPOINT ["dotnet", "watch", "run"]
+RUN chmod +x /init.sh
+ENTRYPOINT ["bash", "./init.sh"]

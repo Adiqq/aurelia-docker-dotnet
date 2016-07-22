@@ -1,0 +1,6 @@
+{
+    "projects":[
+        "Infrastructure.Data",
+        "WebAPI"
+    ]
+}

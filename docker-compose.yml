@@ -1,24 +1,24 @@
 version: '2'
 services:
     api:
-        build:  ./api
+        build:  ./API
         ports:
             -   "5000:5000"
         volumes:
-            -   ./api:/api
+            -   ./API:/api
         depends_on:
             -   db
     front:
-        build:  ./front
+        build:  ./Front
         ports:
             -   "9000:9000"
             -   "3001:3001"
         volumes:
-            -   ./front:/front
+            -   ./Front:/front
         depends_on:
             -   api
     db:
-        build:  ./database
+        build:  ./Database
         ports:
             -   "5432:5432"
         volumes:
