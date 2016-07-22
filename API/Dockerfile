@@ -12,7 +12,6 @@ ENV USE_POLLING_FILE_WATCHER=true
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 WORKDIR /
 ADD ./init.sh /
-RUN cat ./init.sh
-
 RUN chmod +x /init.sh
+
 ENTRYPOINT ["bash", "./init.sh"]

@@ -1,16 +1,17 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import 'fetch';
+import _config from 'config-service';
 
-@inject(HttpClient)
+@inject(HttpClient, _config)
 export class TestApi {
   heading = 'Loading from API';
 
-  constructor(http) {
-    http.configure(config => {
-      config
+  constructor(http, config) {
+    http.configure(c => {
+      c
         .useStandardConfiguration()
-        .withBaseUrl('http://localhost:5000/api/');
+        .withBaseUrl(config.baseUrl);
     });
 
     this.http = http;
