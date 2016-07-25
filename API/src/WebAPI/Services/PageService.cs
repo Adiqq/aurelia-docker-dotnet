@@ -15,7 +15,7 @@ namespace WebAPI.Services
         void AddComment(CreateCommentCommand command);
     }
 
-    public class PageService
+    public class PageService : IPageService
     {
         private readonly QueryDispatcher _queryDispatcher;
         private readonly CommandDispatcher _commandDispatcher;
