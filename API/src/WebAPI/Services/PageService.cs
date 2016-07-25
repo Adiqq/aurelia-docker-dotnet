@@ -2,6 +2,8 @@
 using Application.Queries;
 using Infrastructure.Core;
 using Infrastructure.Data.Model;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +21,11 @@ namespace WebAPI.Services
     {
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly ICommandDispatcher _commandDispatcher;
-        public PageService(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher) {
+        private readonly ILogger<PageService> _logger;
+        public PageService(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher, ILogger<PageService> logger) {
             _queryDispatcher = queryDispatcher;
             _commandDispatcher = commandDispatcher;
+            _logger = logger;
         }
 
         public Page GetPageByName(string name) {
@@ -43,6 +47,7 @@ namespace WebAPI.Services
        }
 
         public void AddComment(CreateCommentCommand command) {
+            _logger.LogDebug(JsonConvert.SerializeObject(command));
             _commandDispatcher.Execute(command);
         }
     }
