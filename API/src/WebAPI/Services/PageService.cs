@@ -17,9 +17,9 @@ namespace WebAPI.Services
 
     public class PageService : IPageService
     {
-        private readonly QueryDispatcher _queryDispatcher;
-        private readonly CommandDispatcher _commandDispatcher;
-        public PageService(QueryDispatcher queryDispatcher, CommandDispatcher commandDispatcher) {
+        private readonly IQueryDispatcher _queryDispatcher;
+        private readonly ICommandDispatcher _commandDispatcher;
+        public PageService(IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher) {
             _queryDispatcher = queryDispatcher;
             _commandDispatcher = commandDispatcher;
         }
