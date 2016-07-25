@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "Autofac": "4.0.0-rc3-316",
+    "Infrastructure.Core": "1.0.0-*",
+    "Infrastructure.Data": "1.0.0",
+    "NETStandard.Library": "1.6.0"
+  },
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+  "version": "1.0.0"
+}

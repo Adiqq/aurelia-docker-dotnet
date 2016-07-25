@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /api/;
 dotnet restore;
-cd /api/WebAPI;
+cd /api/src/WebAPI;
 dotnet watch run;

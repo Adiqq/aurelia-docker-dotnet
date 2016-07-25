@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.EntityFrameworkCore": "1.0.0",
+    "Infrastructure.Core": "1.0.0-*",
+    "Autofac": "4.0.0-rc3-316"
+  },
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win8"
+      ]
+    }
+  },
+  "version": "1.0.0"
+}
