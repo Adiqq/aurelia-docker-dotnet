@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using System;
+using WebAPI.Services;
 
 namespace WebAPI
 {
@@ -58,6 +59,8 @@ namespace WebAPI
         private void RegisterCustom(ContainerBuilder builder) {
             builder.RegisterModule<Application.IoC.Module>();
             builder.RegisterModule<Infrastructure.Core.IoC.Module>();
+
+            builder.RegisterType<PageService>().As<IPageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
