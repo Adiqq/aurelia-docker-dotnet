@@ -14,7 +14,7 @@ namespace WebAPI.Controllers {
         }
         // POST api/values
         [HttpPost]
-        public void Post(CreateCommentCommand command)
+        public void Post([FromBody]CreateCommentCommand command)
         {
             _pageService.AddComment(command);
         }
