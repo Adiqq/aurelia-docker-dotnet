@@ -8,6 +8,9 @@ namespace Application.Commands
 {
     public class CreatePageCommand : ICommand
     {
-        public string Name { get; set; }
+        public string Name { get; }
+        public CreatePageCommand(string name) {
+            Name = name;
+        }
     }
 }
