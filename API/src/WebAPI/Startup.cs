@@ -55,7 +55,7 @@ namespace WebAPI
             services.AddMvc()
                 .AddJsonOptions(
                     a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
-            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials()));
 
             var builder = new ContainerBuilder();
             RegisterCustom(builder);

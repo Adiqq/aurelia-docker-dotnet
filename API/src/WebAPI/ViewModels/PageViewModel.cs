@@ -7,6 +7,7 @@ namespace WebAPI.ViewModels
 {
     public class PageViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public IEnumerable<CommentViewModel> Comments { get; set; }
     }
