@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.CommandHandlers
 {
@@ -19,13 +20,13 @@ namespace Application.CommandHandlers
             _logger = logger;
         }
         public void Execute(CreateCommentCommand command) {
-            var page = _context.Pages.Single(x => x.Id == command.PageId);
+            var page = _context.Pages.Include(x => x.Comments).Single(x => x.Id == command.PageId);
             _logger.LogDebug(JsonConvert.SerializeObject(page));
             var comment = new Comment {
                 Author = command.Author,
                 Content = command.Content
             };
-            page.Comments = new List<Comment> { comment };
+            page.Comments.Add(comment);
             _logger.LogDebug(JsonConvert.SerializeObject(page));
             _context.SaveChanges();
         }
