@@ -58,7 +58,7 @@ namespace WebAPI.Migrations
                         .WithMany("Children")
                         .HasForeignKey("CommentId");
 
-                    b.HasOne("Infrastructure.Data.Model.Page")
+                    b.HasOne("Infrastructure.Data.Model.Page", "Page")
                         .WithMany("Comments")
                         .HasForeignKey("PageId");
                 });
