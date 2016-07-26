@@ -25,7 +25,7 @@ namespace Application.CommandHandlers
                 Author = command.Author,
                 Content = command.Content
             };
-            page.Comments.Add(comment);
+            page.Comments = new List<Comment> { comment };
             _logger.LogDebug(JsonConvert.SerializeObject(page));
             _context.SaveChanges();
         }

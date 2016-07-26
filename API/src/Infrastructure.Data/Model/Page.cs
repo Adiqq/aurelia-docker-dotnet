@@ -8,6 +8,6 @@ namespace Infrastructure.Data.Model
 {
     public class Page : AggregateRoot {
         public string Name { get; set; }
-        public List<Comment> Comments {get;set;}
+        public ICollection<Comment> Comments {get;set;}
     }
 }
