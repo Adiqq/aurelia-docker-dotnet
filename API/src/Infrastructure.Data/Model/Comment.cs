@@ -10,6 +10,7 @@ namespace Infrastructure.Data.Model {
         public string Content { get; set; }
         public ICollection<Comment> Children { get; set; }
 
+        public int PageId { get; set; }
         public Page Page { get; set; }
 
     }

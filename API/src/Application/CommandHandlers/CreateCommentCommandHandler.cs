@@ -18,7 +18,7 @@ namespace Application.CommandHandlers
             var page = _context.Pages.Single(x => x.Id == command.PageId);
             page.Comments.Add(new Comment {
                 Author = command.Author,
-                Content = command.Content,
+                Content = command.Content
             });
             _context.SaveChanges();
         }
