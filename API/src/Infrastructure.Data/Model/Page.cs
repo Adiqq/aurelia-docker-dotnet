@@ -8,9 +8,9 @@ namespace Infrastructure.Data.Model
 {
     public class Page : AggregateRoot {
         public Page() {
-            Comments = new HashSet<Comment>();
+            Comments = new List<Comment>();
         }
         public string Name { get; set; }
-        public virtual ICollection<Comment> Comments {get;set;}
+        public virtual List<Comment> Comments {get;set;}
     }
 }

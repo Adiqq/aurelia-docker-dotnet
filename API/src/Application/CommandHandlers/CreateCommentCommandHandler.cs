@@ -16,10 +16,11 @@ namespace Application.CommandHandlers
         }
         public void Execute(CreateCommentCommand command) {
             var page = _context.Pages.Single(x => x.Id == command.PageId);
-            page.Comments.Add(new Comment {
+            var comment = new Comment {
                 Author = command.Author,
                 Content = command.Content
-            });
+            };
+            page.Comments.Add(comment);
             _context.SaveChanges();
         }
     }
