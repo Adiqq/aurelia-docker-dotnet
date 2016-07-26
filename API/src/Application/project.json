@@ -3,7 +3,8 @@
     "Autofac": "4.0.0-rc3-316",
     "Infrastructure.Core": "1.0.0-*",
     "Infrastructure.Data": "1.0.0",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1"
   },
   "frameworks": {
     "netstandard1.6": {

@@ -1,4 +1,7 @@
-﻿using Autofac;
+﻿using Application.CommandHandlers;
+using Autofac;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +21,14 @@ namespace WebAPI.Tests
 
             builder.RegisterType<PageService>().As<IPageService>();
 
+            var mock = new Mock<ILogger<PageService>>();
+            var mock2 = new Mock<ILogger<CreateCommentCommandHandler>>();
+            builder.RegisterInstance(mock.Object).As<ILogger<PageService>>();
+            builder.RegisterInstance(mock2.Object).As<ILogger<CreateCommentCommandHandler>>();
+
             var container = builder.Build();
+
+          
 
             var service = container.Resolve<IPageService>();
         }
