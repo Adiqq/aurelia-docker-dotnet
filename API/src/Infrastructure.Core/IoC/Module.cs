@@ -11,8 +11,8 @@ namespace Infrastructure.Core.IoC
     public class Module : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder) {
-            builder.RegisterType<CommandDispatcher>().As<ICommandDispatcher>().SingleInstance();
-            builder.RegisterType<QueryDispatcher>().As<IQueryDispatcher>().SingleInstance();
+            builder.RegisterType<CommandDispatcher>().As<ICommandDispatcher>();
+            builder.RegisterType<QueryDispatcher>().As<IQueryDispatcher>();
             builder.RegisterType<AutofacDependencyResolver>().As<IDependencyResolver>();
         }
     }

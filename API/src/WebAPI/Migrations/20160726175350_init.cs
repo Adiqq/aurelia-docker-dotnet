@@ -4,13 +4,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAPI.Migrations
 {
-    public partial class Comments : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "TestData");
-
             migrationBuilder.CreateTable(
                 name: "Pages",
                 columns: table => new
@@ -34,7 +31,7 @@ namespace WebAPI.Migrations
                     Author = table.Column<string>(nullable: true),
                     CommentId = table.Column<int>(nullable: true),
                     Content = table.Column<string>(nullable: true),
-                    PageId = table.Column<int>(nullable: true)
+                    PageId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +47,7 @@ namespace WebAPI.Migrations
                         column: x => x.PageId,
                         principalTable: "Pages",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -71,19 +68,6 @@ namespace WebAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pages");
-
-            migrationBuilder.CreateTable(
-                name: "TestData",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
-                    Text = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TestData", x => x.Id);
-                });
         }
     }
 }

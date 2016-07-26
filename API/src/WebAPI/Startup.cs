@@ -1,7 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
 using Infrastructure.Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Data.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using System;
+using WebAPI.Mappings;
 using WebAPI.Services;
+using WebAPI.ViewModels;
 
 namespace WebAPI
 {
@@ -23,8 +27,13 @@ namespace WebAPI
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddJsonFile("config.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            Mapper.Initialize(cfg => {
+                cfg.AddProfile<DefaultProfile>();
+            });
+            Mapper.Configuration.AssertConfigurationIsValid();
         }
 
         public IContainer ApplicationContainer { get; private set; }

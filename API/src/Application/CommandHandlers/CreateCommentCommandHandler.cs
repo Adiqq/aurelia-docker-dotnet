@@ -3,31 +3,25 @@ using Infrastructure.Core;
 using Infrastructure.Data;
 using Infrastructure.Data.Model;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.CommandHandlers
-{
+namespace Application.CommandHandlers {
     public class CreateCommentCommandHandler : ICommandHandler<CreateCommentCommand> {
         private readonly TestDbContext _context;
-        private readonly ILogger<CreateCommentCommandHandler> _logger;
-        public CreateCommentCommandHandler(TestDbContext context, ILogger<CreateCommentCommandHandler> logger) {
+        public CreateCommentCommandHandler(TestDbContext context) {
             _context = context;
-            _logger = logger;
         }
         public void Execute(CreateCommentCommand command) {
             var page = _context.Pages.Include(x => x.Comments).Single(x => x.Id == command.PageId);
-            _logger.LogDebug(JsonConvert.SerializeObject(page));
+
             var comment = new Comment {
                 Author = command.Author,
-                Content = command.Content
+                Content = command.Content,
+                PageId = command.PageId
             };
             page.Comments.Add(comment);
-            _logger.LogDebug(JsonConvert.SerializeObject(page));
+
             _context.SaveChanges();
         }
     }

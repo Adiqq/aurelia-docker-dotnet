@@ -2,6 +2,7 @@
 using Infrastructure.Core;
 using Infrastructure.Data;
 using Infrastructure.Data.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -12,7 +13,7 @@ namespace Application.QueryHandlers {
             _context = context;
         }
         public Page Execute(GetPageByNameQuery query) {
-            return _context.Pages.Single(x => x.Name == query.Name);
+            return _context.Pages.Include(x => x.Comments).Single(x => x.Name == query.Name);
         }
     }
 }

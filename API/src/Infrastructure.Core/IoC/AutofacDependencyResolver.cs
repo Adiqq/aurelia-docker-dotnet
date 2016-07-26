@@ -11,6 +11,7 @@ namespace Infrastructure.Core.IoC
         private readonly IComponentContext _context;
         public AutofacDependencyResolver(IComponentContext context) {
             _context = context;
+            Console.WriteLine("Test");
         }
         public T Resolve<T>() {
             return _context.Resolve<T>();

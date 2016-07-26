@@ -26,7 +26,7 @@ namespace WebAPI.Migrations
 
                     b.Property<string>("Content");
 
-                    b.Property<int?>("PageId");
+                    b.Property<int>("PageId");
 
                     b.HasKey("Id");
 
@@ -60,7 +60,8 @@ namespace WebAPI.Migrations
 
                     b.HasOne("Infrastructure.Data.Model.Page", "Page")
                         .WithMany("Comments")
-                        .HasForeignKey("PageId");
+                        .HasForeignKey("PageId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

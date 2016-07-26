@@ -1,19 +1,17 @@
 ﻿using Application.Commands;
 using Application.Queries;
+using AutoMapper;
 using Infrastructure.Core;
 using Infrastructure.Data.Model;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using WebAPI.ViewModels;
 
-namespace WebAPI.Services
-{
+namespace WebAPI.Services {
 
     public interface IPageService {
-        Page GetPageByName(string name);
+        PageViewModel GetPageByName(string name);
         void AddComment(CreateCommentCommand command);
     }
 
@@ -28,13 +26,16 @@ namespace WebAPI.Services
             _logger = logger;
         }
 
-        public Page GetPageByName(string name) {
+        public PageViewModel GetPageByName(string name) {
             var page = TryGetPage(name);
             if (page != null) {
-                return page;
+                return Mapper.Map<Page, PageViewModel>(page);
             }
+
             _commandDispatcher.Execute<CreatePageCommand>(new CreatePageCommand(name));
-            return TryGetPage(name);
+            page = TryGetPage(name);
+
+            return Mapper.Map<Page, PageViewModel>(page);
         }
 
         private Page TryGetPage(string name) {

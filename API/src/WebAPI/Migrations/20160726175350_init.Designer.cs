@@ -8,8 +8,8 @@ using Infrastructure.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(TestDbContext))]
-    [Migration("20160726173146_testmigration")]
-    partial class testmigration
+    [Migration("20160726175350_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace WebAPI.Migrations
 
                     b.Property<string>("Content");
 
-                    b.Property<int?>("PageId");
+                    b.Property<int>("PageId");
 
                     b.HasKey("Id");
 
@@ -61,7 +61,8 @@ namespace WebAPI.Migrations
 
                     b.HasOne("Infrastructure.Data.Model.Page", "Page")
                         .WithMany("Comments")
-                        .HasForeignKey("PageId");
+                        .HasForeignKey("PageId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

@@ -13,7 +13,7 @@ namespace Infrastructure.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Comment>().HasKey(x => x.Id);
-            modelBuilder.Entity<Comment>().HasOne(x => x.Page).WithMany(x => x.Comments);
+            modelBuilder.Entity<Comment>().HasOne(x => x.Page).WithMany(x => x.Comments).IsRequired(true);
 
             modelBuilder.Entity<Page>().HasKey(x => x.Id);
             modelBuilder.Entity<Page>().HasAlternateKey(x => x.Name);

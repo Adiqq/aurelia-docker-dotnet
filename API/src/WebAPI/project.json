@@ -7,6 +7,7 @@
     "Application": "1.0.0",
     "Autofac": "4.0.0-rc3-316",
     "Autofac.Extensions.DependencyInjection": "4.0.0-rc3-309",
+    "AutoMapper": "5.0.2",
     "Infrastructure.Core": "1.0.0-*",
     "Infrastructure.Data": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",

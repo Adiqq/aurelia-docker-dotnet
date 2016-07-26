@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Infrastructure.Core;
 using WebAPI.Services;
 using Infrastructure.Data.Model;
+using WebAPI.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,7 +21,7 @@ namespace WebAPI.Controllers
         }
         // GET api/values/5
         [HttpGet("{id}")]
-        public Page Get(string id) {
+        public PageViewModel Get(string id) {
             return _pageService.GetPageByName(id);
         }
     }
